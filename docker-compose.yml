@@ -1,7 +1,7 @@
 version: '3.7'
 services:
 
-  # This is the container to interact with
+  # This is the container to use the
   # GCP command line interface
   gcpcli:
     image: google/cloud-sdk:alpine
@@ -12,7 +12,11 @@ services:
         source: ./colossal-squid/
         target: /root/colossal-squid
     # docker-compose run gcpcli /bin/bash
+    
+    # https://cloud.google.com/sdk/gcloud/reference/auth/activate-service-account
     # gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+
+    # https://cloud.google.com/storage/docs/using-object-versioning
     # gsutil versioning set on gs://colossal-squid-terraform-state-prod
 
   # This is the container to use terraform
